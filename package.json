@@ -1,0 +1,35 @@
+{
+  "name": "api",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@strapi/plugin-i18n": "4.11.1",
+    "@strapi/plugin-users-permissions": "4.11.2",
+    "@strapi/strapi": "4.11.1",
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "8.0.1",
+    "dayjs": "^1.11.8",
+    "nodemailer": "^6.9.3",
+    "twilio": "^4.13.0",
+    "uuidv4": "^6.2.13"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "0a3d1e2c-be08-42ae-97d3-885db94827ff"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

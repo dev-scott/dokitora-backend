@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notifications",
+  "info": {
+    "singularName": "notification",
+    "pluralName": "notifications",
+    "displayName": "Notification",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "prescription",
+        "appointment"
+      ]
+    },
+    "prescription": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::prescription.prescription",
+      "inversedBy": "notifications"
+    },
+    "content": {
+      "type": "string"
+    }
+  }
+}

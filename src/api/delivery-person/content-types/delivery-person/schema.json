@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "delivery_people",
+  "info": {
+    "singularName": "delivery-person",
+    "pluralName": "delivery-people",
+    "displayName": "Delivery_person"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "adresse": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "biginteger"
+    },
+    "pharmacy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pharmacy.pharmacy",
+      "inversedBy": "delivery_people"
+    }
+  }
+}
