@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pharmacies",
+  "info": {
+    "singularName": "pharmacy",
+    "pluralName": "pharmacies",
+    "displayName": "Pharmacy"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "adresse": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "biginteger"
+    },
+    "delivery_people": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::delivery-person.delivery-person",
+      "mappedBy": "pharmacy"
+    }
+  }
+}

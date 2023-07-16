@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/registerWithPhoneAndOTP",
+      "handler": "user.registerWithPhoneAndOTP",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/verify-otp",
+      "handler": "user.verifyOtp",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
