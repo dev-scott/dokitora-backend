@@ -506,6 +506,50 @@ module.exports = (plugin) => {
 
   // update user information
 
+
+  plugin.controllers.auth.updateUserOtp = async (ctx) => {
+
+    const {phone } = ctx.request.body;
+
+    const userWithThisNumber = await strapi
+    .query("plugin::users-permissions.user")
+    .findOne({ where: { phone: ctx.request.body.phone } });
+
+
+    const otp = Math.floor(Math.random() * 9000) + 1000;
+
+
+    let updateData = {
+      otp: otp,
+    }
+
+    const newData = await strapi.entityService.update(
+      "plugin::users-permissions.user",
+      userWithThisNumber.id,
+      {
+        data: updateData
+      }
+    )
+
+
+    return "otp updated successfully"
+
+
+  }
+
+// resent otp code 
+
+
+
+
+
+
+
+
+//
+
+
+
   plugin.contentTypes.user = user;
 
   plugin.routes["content-api"].routes.push(
@@ -532,6 +576,15 @@ module.exports = (plugin) => {
       method: "POST",
       path: "/auth/updateAccount",
       handler: "auth.updateAccount",
+      config: {
+        prefix: "",
+        policies: [],
+      },
+    },
+    {
+      method: "POST",
+      path: "/auth/updateUserOtp",
+      handler: "auth.updateUserOtp",
       config: {
         prefix: "",
         policies: [],
