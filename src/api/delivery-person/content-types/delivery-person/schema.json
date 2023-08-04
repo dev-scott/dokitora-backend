@@ -4,7 +4,8 @@
   "info": {
     "singularName": "delivery-person",
     "pluralName": "delivery-people",
-    "displayName": "Delivery_person"
+    "displayName": "medication",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,17 +15,30 @@
     "name": {
       "type": "string"
     },
-    "adresse": {
+    "strength": {
       "type": "string"
     },
-    "phone": {
-      "type": "biginteger"
+    "cost": {
+      "type": "float"
     },
     "pharmacy": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::pharmacy.pharmacy",
-      "inversedBy": "delivery_people"
+      "inversedBy": "medication"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

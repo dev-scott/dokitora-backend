@@ -4,7 +4,8 @@
   "info": {
     "singularName": "pharmacy",
     "pluralName": "pharmacies",
-    "displayName": "Pharmacy"
+    "displayName": "Pharmacy",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,10 +21,33 @@
     "phone": {
       "type": "biginteger"
     },
-    "delivery_people": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "latitude": {
+      "type": "float"
+    },
+    "longitude": {
+      "type": "float"
+    },
+    "medication": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::delivery-person.delivery-person",
+      "mappedBy": "pharmacy"
+    },
+    "order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order",
       "mappedBy": "pharmacy"
     }
   }

@@ -447,7 +447,7 @@ module.exports = (plugin) => {
     }
 
     let updateData = {
-      otp: "",
+      otp: null,
       confirmed: true,
     };
 

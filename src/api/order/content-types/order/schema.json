@@ -32,6 +32,21 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "pharmacy": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pharmacy.pharmacy",
+      "inversedBy": "order"
+    },
+    "date": {
+      "type": "string"
+    },
+    "pharmacy_name": {
+      "type": "string"
+    },
+    "order_price": {
+      "type": "biginteger"
     }
   }
 }

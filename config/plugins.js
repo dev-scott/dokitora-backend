@@ -1,11 +1,19 @@
 module.exports = ({ env }) => ({
-    // other plugin configurations...
-    email: {
-      provider: "sendmail", // or any other email provider of your choice
-      providerOptions: {},
-      settings: {
-        defaultFrom: "sadoscott04@gmail.com",
-        defaultReplyTo: "sadoscott25@gmail.com",
+  // ...
+  upload: {
+    config: {
+      provider: 'cloudinary',
+      providerOptions: {
+        cloud_name: env('CLOUDINARY_NAME'),
+            api_key: env('CLOUDINARY_KEY'),
+            api_secret: env('CLOUDINARY_SECRET'),
+      },
+      actionOptions: {
+        upload: {},
+        uploadStream: {},
+        delete: {},
       },
     },
-  });
+  },
+  // ...
+});
