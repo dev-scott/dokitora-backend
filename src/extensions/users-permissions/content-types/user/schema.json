@@ -94,6 +94,12 @@
     },
     "otp": {
       "type": "biginteger"
+    },
+    "longitude": {
+      "type": "biginteger"
+    },
+    "latitude": {
+      "type": "biginteger"
     }
   }
 }

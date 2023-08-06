@@ -7,11 +7,14 @@ module.exports = {
 
     // console.log(result, event.params.);
 
+    const specialization = "pediatre"
+
     if (userRole === 3) {
       await strapi.entityService.create("api::doctor.doctor", {
         data: {
           user: result.id,
-          specialty: event.params.data.doctor.specialization,
+          // specialty: event.params.data.doctor.specialization,
+          specialty:specialization,
 
         },
       });

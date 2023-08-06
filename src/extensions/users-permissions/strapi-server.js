@@ -350,9 +350,6 @@ module.exports = (plugin) => {
   //   // return ctx.send({ message: 'Code OTP envoyé avec succès' });
   // };
 
-
-  
-
   plugin.controllers.auth.registerUserWithOtp = async (ctx) => {
     const { phone, username } = ctx.request.body;
 
@@ -506,49 +503,49 @@ module.exports = (plugin) => {
 
   // update user information
 
-
   plugin.controllers.auth.updateUserOtp = async (ctx) => {
-
-    const {phone } = ctx.request.body;
+    const { phone } = ctx.request.body;
 
     const userWithThisNumber = await strapi
-    .query("plugin::users-permissions.user")
-    .findOne({ where: { phone: ctx.request.body.phone } });
-
+      .query("plugin::users-permissions.user")
+      .findOne({ where: { phone: ctx.request.body.phone } });
 
     const otp = Math.floor(Math.random() * 9000) + 1000;
 
-
     let updateData = {
       otp: otp,
-    }
+    };
 
     const newData = await strapi.entityService.update(
       "plugin::users-permissions.user",
       userWithThisNumber.id,
       {
-        data: updateData
+        data: updateData,
       }
-    )
+    );
+
+    return "otp updated successfully";
+  };
+
+  // resent otp code
+
+  // get doctor user
+  plugin.controllers.auth.getDoctorUser = async (ctx) => {
+    const DoctorUser = await strapi
+      .query("plugin::users-permissions.user")
+      .findMany({ where: { role: 3 } });
+
+      return ctx.send({
+        
+        data:DoctorUser
+      });
 
 
-    return "otp updated successfully"
+  };
 
+  // get doctor user
 
-  }
-
-// resent otp code 
-
-
-
-
-
-
-
-
-//
-
-
+  //
 
   plugin.contentTypes.user = user;
 
@@ -585,6 +582,15 @@ module.exports = (plugin) => {
       method: "POST",
       path: "/auth/updateUserOtp",
       handler: "auth.updateUserOtp",
+      config: {
+        prefix: "",
+        policies: [],
+      },
+    },
+    {
+      method: "GET",
+      path: "/auth/getDoctorUser",
+      handler: "auth.getDoctorUser",
       config: {
         prefix: "",
         policies: [],
