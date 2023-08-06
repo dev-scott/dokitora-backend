@@ -32,6 +32,28 @@ module.exports = {
 
     }
 
+    else if (userRole===2){
+
+      await strapi.entityService.create("api::delivery.delivery", {
+        data: {
+          user: result.id,
+      
+        },
+      });
+
+
+    }
+    else if (userRole ===5){
+
+      await strapi.entityService.create("api::pharmacy.pharmacy", {
+        data: {
+          user: result.id,
+      
+        },
+      });
+
+
+    }
     //check if userRole not exist
     else if(!userRole) {
 

@@ -545,6 +545,22 @@ module.exports = (plugin) => {
 
   // get doctor user
 
+
+  plugin.controllers.auth.getDeliveryPerson = async (ctx) => {
+    const DeliveryPerson = await strapi
+      .query("plugin::users-permissions.user")
+      .findOne({ where: { role: 2 } });
+
+      return ctx.send({
+        
+        data:DeliveryPerson
+      });
+
+
+  };
+
+
+
   //
 
   plugin.contentTypes.user = user;
@@ -591,6 +607,15 @@ module.exports = (plugin) => {
       method: "GET",
       path: "/auth/getDoctorUser",
       handler: "auth.getDoctorUser",
+      config: {
+        prefix: "",
+        policies: [],
+      },
+    },
+    {
+      method: "GET",
+      path: "/auth/getDeliveryPerson",
+      handler: "auth.getDeliveryPerson",
       config: {
         prefix: "",
         policies: [],
