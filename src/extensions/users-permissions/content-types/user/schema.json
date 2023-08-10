@@ -103,6 +103,10 @@
     },
     "description": {
       "type": "text"
+    },
+    "isDelivery": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

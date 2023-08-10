@@ -47,6 +47,9 @@
     },
     "order_price": {
       "type": "biginteger"
+    },
+    "order_pharmacy_number": {
+      "type": "biginteger"
     }
   }
 }
